@@ -1,4 +1,5 @@
-from pyscript import Plugin, js
+from pyscript import Plugin
+import js
 import re
 
 plugin = Plugin("SimpleCodeInput")
@@ -9,6 +10,7 @@ plugin = Plugin("SimpleCodeInput")
  
 PAGE_SCRIPT = """
 from pyodide.ffi.wrappers import add_event_listener
+import js
 
 def sync_text():
     code = js.document.querySelector("#highlighter-content")
@@ -64,6 +66,7 @@ add_event_listener(js.document.querySelector("#editor"), "keydown", overwrite_ta
 """
 
 INIT_SCRIPT = """
+import js
 js.hljs.highlightAll()
 
 """
